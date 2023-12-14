@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+
+// Клас для зберігання інформації (відповідальність за зберігання)
+class DataStorage {
+public:
+    void SetData(const std::string& newData) {
+        data = newData;
+    }
+
+    std::string GetData() const {
+        return data;
+    }
+
+private:
+    std::string data;
+};
+
+// Клас для виводу інформації (відповідальність за вивід)
+class DataPrinter {
+public:
+    void PrintData(const std::string& data) {
+        std::cout << "Data: " << data << std::endl;
+    }
+};
+
+int main() {
+    DataStorage dataStorage;
+    DataPrinter dataPrinter;
+
+    // Робота зі збереженою інформацією
+    dataStorage.SetData("Hello, SRP!");
+
+    // Виведення інформації
+    std::string data = dataStorage.GetData();
+    dataPrinter.PrintData(data);
+
+    return 0;
+}
